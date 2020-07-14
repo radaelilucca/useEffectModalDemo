@@ -7,6 +7,7 @@ import {
   TouchableHighlight,
   View,
 } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const App = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -33,14 +34,15 @@ const App = () => {
         }}
       >
         <View style={styles.centeredView}>
-          <View
-            style={styles.modalView}
+          <TouchableOpacity
             onPress={() => {
-              console.log("press");
+              setModalVisible(!modalVisible);
             }}
           >
-            <Text style={styles.modalText}>Hello World!</Text>
-          </View>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>Hello World!</Text>
+            </View>
+          </TouchableOpacity>
         </View>
       </Modal>
       <Text>LOADING?: {loading}</Text>
